@@ -1,0 +1,215 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/ui/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TittleLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TittleLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ButtonsWrapper:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ButtonsWrapper:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "menu_ready"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TittleLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TittleLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.35, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.054902 ), Color( 1, 1, 1, 0.52549 ), Color( 1, 1, 1, 0.254902 ), Color( 1, 1, 1, 0.305882 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ButtonsWrapper:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 0 ), Vector2( 980, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ButtonsWrapper:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ButtonsWrapper" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="ColorRect" parent="ButtonsWrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 300.0
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="ButtonsWrapper/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -94.0
+margin_right = 150.0
+margin_bottom = 94.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="MenuButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_right = 250.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MenuButton2" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 64.0
+margin_right = 250.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CreditsButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 128.0
+margin_right = 250.0
+margin_bottom = 188.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits"
+go_to_scene = "res://game/menus/Credits.tscn"
+
+[node name="HSeparator" type="HSeparator" parent="ButtonsWrapper/TextureRect/ButtonsContainer"]
+margin_top = 192.0
+margin_right = 300.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="QuitButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 216.0
+margin_right = 250.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit"
+is_quitter = true
+
+[node name="VersionLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -32.0
+margin_right = 96.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 1 )
+text = "v0.0.0"
+
+[node name="TittleLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 40.0
+margin_right = -305.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 2 )
+text = "Game Tittle"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "menu_ready"
+anims/RESET = SubResource( 3 )
+anims/menu_ready = SubResource( 4 )
