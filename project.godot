@@ -9,18 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RayCast2D",
+"class": "FloorDetector",
+"language": "GDScript",
+"path": "res://game/player/FloorDetector.gd"
+}, {
 "base": "Button",
 "class": "MainButton",
 "language": "GDScript",
 "path": "res://game/ui/MenuButton.gd"
 } ]
 _global_script_class_icons={
+"FloorDetector": "",
 "MainButton": ""
 }
 
 [application]
 
 config/name="AnythingGrowth"
+run/main_scene="res://game/levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [display]
