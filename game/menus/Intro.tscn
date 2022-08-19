@@ -117,6 +117,7 @@ tracks/7/keys = {
 
 [node name="Intro" type="Node"]
 script = ExtResource( 3 )
+main_menu = "res://game/menus/MainMenu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
