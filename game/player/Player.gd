@@ -12,7 +12,7 @@ var can_dash:bool = true setget set_can_dash
 var input_enabled = true setget set_input_enabled
 var dashed:bool = false
 var alive = true setget ,get_is_alive
-var shrink_number = 6
+var shrink_number = 5
 var shrink_scale = 0.90
 
 onready var skin:AnimatedSprite = $Skin/AnimatedSprite
@@ -152,5 +152,7 @@ func shrink() -> void:
 		jump_force *= 0.98
 		speed *= 1.10
 		shrink_number -= 1
+	else:
+		Events.emit_signal("max_level_growths_reached")
 
 
