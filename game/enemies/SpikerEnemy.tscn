@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/enemies/GrowthEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/enemies/SpikerEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/characters/character_0015.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/character_0016.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[node name="SpikerEnemy" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 3
+input_pickable = true
+script = ExtResource( 2 )
+speed = Vector2( -30, 100 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="2"]
+position = Vector2( 0, -10 )
+frames = SubResource( 2 )
+animation = "move"
+
+[node name="FloorDetector" type="RayCast2D" parent="." index="3"]
+position = Vector2( -11, -3 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 2
+collide_with_areas = true
+
+[node name="WallDetector" type="RayCast2D" parent="." index="4"]
+position = Vector2( 0, -5 )
+enabled = true
+cast_to = Vector2( -20, 0 )
+collision_mask = 2
