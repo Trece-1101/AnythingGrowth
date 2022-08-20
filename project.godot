@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/items/GrowthItem.gd"
 }, {
+"base": "Node2D",
+"class": "GrowthPlatform",
+"language": "GDScript",
+"path": "res://game/items/platform/GrowthPlatform.gd"
+}, {
 "base": "Button",
 "class": "MainButton",
 "language": "GDScript",
@@ -54,6 +59,7 @@ _global_script_class_icons={
 "FloorDetector": "",
 "GrowthEnemy": "",
 "GrowthItem": "",
+"GrowthPlatform": "",
 "MainButton": "",
 "PathPoints": "",
 "Platform": "",

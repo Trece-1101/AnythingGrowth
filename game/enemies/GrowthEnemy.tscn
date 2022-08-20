@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game/enemies/GrowthEnemy.gd" type="Script" id=1]
 
-[node name="GrowthEnemy" type="KinematicBody2D" groups=["pausable"]]
+[node name="GrowthEnemy" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )

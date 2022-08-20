@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/platforms/tile_0048.png" type="Texture" id=1]
 [ext_resource path="res://assets/platforms/tile_0049.png" type="Texture" id=2]
 [ext_resource path="res://assets/platforms/tile_0050.png" type="Texture" id=3]
-[ext_resource path="res://game/items/platform/Platform.gd" type="Script" id=4]
+[ext_resource path="res://game/items/platform/GrowthPlatform.gd" type="Script" id=4]
 [ext_resource path="res://game/items/platform/PlatformBody.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27, 9 )
@@ -94,6 +95,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -18, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Label:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -197,8 +210,30 @@ tracks/7/keys = {
 "method": "queue_free"
 } ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 41.8182, 16.3636 )
 
 [node name="Platform" type="Node2D"]
+scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -223,3 +258,27 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/destroy = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -30.0
+margin_top = -7.0
+margin_right = 30.0
+margin_bottom = 7.0
+custom_fonts/font = SubResource( 4 )
+text = "L: 10000"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="PickableArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+shape = SubResource( 5 )
+
+[node name="CoolDown" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="PickableArea" to="." method="_on_PickableArea_mouse_entered"]
+[connection signal="mouse_exited" from="PickableArea" to="." method="_on_PickableArea_mouse_exited"]
+[connection signal="timeout" from="CoolDown" to="." method="_on_CoolDown_timeout"]
