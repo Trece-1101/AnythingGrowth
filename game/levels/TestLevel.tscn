@@ -15,11 +15,12 @@ pause_mode = 2
 script = ExtResource( 8 )
 
 [node name="TileMapGreenWorld" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 1835009, 0, 0, 1835010, 0, 0, 1835011, 0, 0, 1835012, 0, 0, 1835013, 0, 0, 1835014, 0, 0, 1835015, 0, 0, 1835016, 0, 0, 1835017, 0, 0, 1835018, 0, 0, 1835019, 0, 0, 1835020, 0, 0, 1835021, 0, 0, 1835022, 0, 0, 1835023, 0, 0, 1835024, 0, 0, 1835025, 0, 0, 1835026, 0, 0, 1835027, 0, 0, 1835028, 0, 0, 1835029, 0, 0, 1835030, 0, 0, 1835031, 0, 0, 1835032, 0, 0, 1835033, 0, 0 )
 
 [node name="TileMapProps" parent="." instance=ExtResource( 4 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, 294 )
+position = Vector2( 1, 294 )
 anchor_mode = 0
 current = true
 zoom = Vector2( 0.6, 0.6 )
@@ -29,6 +30,7 @@ position = Vector2( 366, 365 )
 
 [node name="Ball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 366, 343 )
+z_index = 0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 81, 476 )
@@ -37,6 +39,12 @@ position = Vector2( 81, 476 )
 
 [node name="Spring" parent="." instance=ExtResource( 1 )]
 position = Vector2( 128, 476 )
+z_index = 0
 
 [node name="Switch" parent="." instance=ExtResource( 9 )]
 position = Vector2( 26, 476 )
+
+[node name="DoorWrapper" parent="Switch" index="2"]
+position = Vector2( 182, -89 )
+
+[editable path="Switch"]

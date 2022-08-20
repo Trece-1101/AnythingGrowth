@@ -3,6 +3,7 @@
 [ext_resource path="res://game/items/GrowthItem.gd" type="Script" id=1]
 
 [node name="GrowthItem" type="RigidBody2D"]
+z_index = 16
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )

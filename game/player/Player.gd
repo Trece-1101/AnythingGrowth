@@ -21,6 +21,7 @@ onready var skin:AnimatedSprite = $Skin/AnimatedSprite
 onready var tween_dash:Tween = $TweenDash
 onready var dash_cool_down:Timer = $TweenDash/CoolDown
 onready var foot_position:Position2D = $FootPosition
+onready var sfx:PlayerSFX = $SFX
 
 
 func set_can_dash(value:bool) -> void:
@@ -106,6 +107,7 @@ func manage_jump() -> void:
 		movement.y = -jump_force
 		movement.y = clamp(movement.y, -max_up_movement, max_fall_movement)
 		skin.play("jump")
+		sfx.play_jump_sfx()
 
 
 func dash() -> void:

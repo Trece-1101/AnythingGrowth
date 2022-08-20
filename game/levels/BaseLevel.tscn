@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game/levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/levels/world/TileMapProps.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/levels/world/TileMapGreenWorld.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/levels/world/AutoTileMapGreenWorld.tscn" type="PackedScene" id=5]
+
+[node name="BaseLevel" type="Node"]
+script = ExtResource( 1 )
+
+[node name="TileMapProps" parent="." instance=ExtResource( 3 )]
+
+[node name="AutoTileMapGreenWorld" parent="." instance=ExtResource( 5 )]
+
+[node name="TileMapGreenWorld" parent="." instance=ExtResource( 4 )]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.6, 0.6 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="BallsContainer" type="Node" parent="."]
+
+[node name="EnemiesContainer" type="Node" parent="."]
+
+[node name="PlatformsContainer" type="Node" parent="."]
+
+[node name="SpikesContainer" type="Node" parent="."]
+
+[node name="SpringContainer" type="Node" parent="."]
+
+[node name="SwitchsDoorsContainer" type="Node" parent="."]

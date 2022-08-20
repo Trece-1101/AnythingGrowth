@@ -1,6 +1,6 @@
 extends Node2D
 
-
+onready var animation_door:AnimationPlayer = $DoorWrapper/AnimationPlayer
 
 func _on_Detector_body_entered(body: Node) -> void:
 	$Detector/CollisionShape2D.set_deferred("disabled", true)
@@ -10,3 +10,5 @@ func _on_Detector_body_entered(body: Node) -> void:
 		$AnimatedSprite.play("switch_to_right")
 	else:
 		$AnimatedSprite.play("switch_to_left")
+	
+	animation_door.play("open")
