@@ -206,6 +206,9 @@ radius = 6.0
 collision_layer = 24
 input_pickable = true
 script = ExtResource( 2 )
+is_path_follower = false
+speed = 100.0
+timer_wait_time = 0.3
 
 [node name="Body" parent="." index="0"]
 shape = SubResource( 1 )
@@ -225,3 +228,8 @@ collision_mask = 97
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 0.3
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

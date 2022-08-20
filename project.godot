@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/ui/MenuButton.gd"
 }, {
+"base": "Line2D",
+"class": "PathPoints",
+"language": "GDScript",
+"path": "res://game/PathFollow/PathPoints.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "FloorDetector": "",
 "GrowthEnemy": "",
 "MainButton": "",
+"PathPoints": "",
 "Player": ""
 }
 
@@ -46,6 +52,7 @@ config/icon="res://icon.png"
 
 Events="*res://game/autoloads/Events.gd"
 Utils="*res://game/autoloads/Utils.gd"
+DrawUtils="*res://game/autoloads/DrawUtils.gd"
 
 [debug]
 

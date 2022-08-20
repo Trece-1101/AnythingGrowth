@@ -1,8 +1,13 @@
 class_name GrowthEnemy extends KinematicBody2D
 
-var can_growth:bool = false
+var can_growth:bool = false setget set_can_growth
 var is_cooled_down:bool = true
 var growth_number:int = 5
+
+
+func set_can_growth(value: bool) -> void:
+	can_growth = value
+
 
 
 func _unhandled_input(event: InputEvent) -> void:

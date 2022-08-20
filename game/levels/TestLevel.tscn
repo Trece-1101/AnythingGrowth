@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/tilemaps/tiles_packed.png" type="Texture" id=1]
 [ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/enemies/Flyer/FlyerEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/enemies/Mine/MineEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/PathFollow/PathPoints.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
@@ -589,10 +590,18 @@ current = true
 zoom = Vector2( 0.6, 0.6 )
 
 [node name="FlyerEnemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 145, 462 )
+position = Vector2( 241, 362 )
+
+[node name="FlyerEnemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 139, 407 )
+is_path_follower = true
+
+[node name="PathPoints" parent="FlyerEnemy2" instance=ExtResource( 6 )]
+points = PoolVector2Array( 117, 389, 163, 368, 184, 409, 113, 434 )
+mode = 1
 
 [node name="SpikerEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 238, 442 )
+position = Vector2( 346, 471 )
 
 [node name="MineEnemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 325, 463 )
+position = Vector2( 545, 445 )
