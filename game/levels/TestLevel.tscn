@@ -589,13 +589,13 @@ current = true
 zoom = Vector2( 0.6, 0.6 )
 
 [node name="FlyerEnemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 241, 362 )
+position = Vector2( 445, 389 )
 
 [node name="FlyerEnemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 345, 373 )
 
 [node name="SpikerEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 293, 473 )
+position = Vector2( 458, 473 )
 
 [node name="MineEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 545, 445 )
