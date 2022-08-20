@@ -14,7 +14,7 @@ func reduce_speed(value:float) -> void:
 	speed *= value
 
 func _ready() -> void:
-	$Sprite.play("move")
+	$SpriteAnimator.play("move")
 
 func _process(delta: float) -> void:
 	if not floor_detector.is_colliding() or wall_detector.is_colliding():
@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 		movement.y = 0
 	
 	move_and_slide(movement, Vector2.UP)
-	print(movement)
 
 
 func change_direction() -> void:

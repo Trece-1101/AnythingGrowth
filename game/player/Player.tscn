@@ -27,4 +27,9 @@ shape = SubResource( 1 )
 
 [node name="TweenDash" type="Tween" parent="."]
 
+[node name="CoolDown" type="Timer" parent="TweenDash"]
+wait_time = 0.8
+one_shot = true
+
 [connection signal="tween_all_completed" from="TweenDash" to="." method="_on_TweenDash_tween_all_completed"]
+[connection signal="timeout" from="TweenDash/CoolDown" to="." method="_on_CoolDown_timeout"]

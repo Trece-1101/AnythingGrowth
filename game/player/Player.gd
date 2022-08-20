@@ -15,6 +15,7 @@ var alive = true setget ,get_is_alive
 
 onready var skin:AnimatedSprite = $Skin/AnimatedSprite
 onready var tween_dash:Tween = $TweenDash
+onready var dash_cool_down:Timer = $TweenDash/CoolDown
 
 
 func set_can_dash(value:bool) -> void:
@@ -23,11 +24,14 @@ func set_can_dash(value:bool) -> void:
 func set_input_enabled(value: bool) -> void:
 	input_enabled = value
 
-func _ready() -> void:
-	skin.play("idle")
-
 func get_is_alive() -> bool:
 	return alive
+
+
+func _ready() -> void:
+	Events.connect("shrink_player", self, "shrink")
+	skin.play("idle")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not input_enabled:
@@ -42,10 +46,7 @@ func _physics_process(_delta: float) -> void:
 	if not dashed:
 		movement.y += gravity
 		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
-	
-	if not dashed:
-		movement.x = get_horizontal_movement() * speed
-	
+		movement.x = get_horizontal_movement() * speed	
 # warning-ignore:return_value_discarded
 	move_and_slide(movement, Vector2.UP)
 	
@@ -103,6 +104,7 @@ func manage_jump() -> void:
 
 func dash() -> void:
 	dashed = true
+	can_dash = false
 	movement = Vector2.ZERO
 # warning-ignore:return_value_discarded
 	tween_dash.interpolate_property(
@@ -130,6 +132,11 @@ func player_enabled(valor:bool) -> void:
 
 func _on_TweenDash_tween_all_completed() -> void:
 	dashed = false
+	dash_cool_down.start()
+
+
+func _on_CoolDown_timeout() -> void:
+	can_dash = true
 
 
 func die() -> void:
@@ -140,6 +147,9 @@ func die() -> void:
 
 
 func shrink() -> void:
-	scale *= 0.90
+	var tween_s := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween_s.tween_property(self, "scale", scale * 0.9, 0.5)
 	jump_force *= 0.98
 	speed *= 1.10
+
+
