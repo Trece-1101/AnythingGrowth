@@ -12,6 +12,8 @@ var can_dash:bool = true setget set_can_dash
 var input_enabled = true setget set_input_enabled
 var dashed:bool = false
 var alive = true setget ,get_is_alive
+var shrink_number = 6
+var shrink_scale = 0.90
 
 onready var skin:AnimatedSprite = $Skin/AnimatedSprite
 onready var tween_dash:Tween = $TweenDash
@@ -69,9 +71,6 @@ func manage_input() -> void:
 		else:
 			movement.y = 0.0
 		can_jump = false
-	
-	if Input.is_action_just_pressed("debug_shrink"):
-		shrink()
 
 
 func get_horizontal_movement() -> float:
@@ -147,9 +146,11 @@ func Destroy() -> void:
 
 
 func shrink() -> void:
-	var tween_s := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tween_s.tween_property(self, "scale", scale * 0.9, 0.5)
-	jump_force *= 0.98
-	speed *= 1.10
+	if shrink_number > 0:
+		var tween_s := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+		tween_s.tween_property(self, "scale", scale * shrink_scale, 0.5)
+		jump_force *= 0.98
+		speed *= 1.10
+		shrink_number -= 1
 
 

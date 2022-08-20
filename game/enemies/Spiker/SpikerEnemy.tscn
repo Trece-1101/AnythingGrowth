@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/characters/character_0016.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5, 4 )
+extents = Vector2( 8, 10 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -199,13 +199,14 @@ tracks/7/keys = {
 radius = 7.0
 
 [node name="SpikerEnemy" instance=ExtResource( 1 )]
-collision_mask = 3
+collision_layer = 72
+collision_mask = 2
 input_pickable = true
 script = ExtResource( 2 )
 speed = Vector2( -30, 100 )
 
 [node name="Body" parent="." index="0"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -7 )
 shape = SubResource( 3 )
 
 [node name="FloorDetector" type="RayCast2D" parent="." index="1"]
@@ -231,7 +232,7 @@ anims/RESET = SubResource( 5 )
 anims/die = SubResource( 6 )
 
 [node name="Detector" parent="." index="6"]
-collision_mask = 1
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]
 position = Vector2( 0, -6 )
