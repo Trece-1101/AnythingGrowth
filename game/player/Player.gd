@@ -3,7 +3,8 @@ class_name Player extends KinematicBody2D
 export var speed:float = 400.0
 export var gravity:float = 20.0
 export var jump_force:float = 10.0
-export var max_movement_y: float = 600
+export var max_fall_movement: float = 600
+export var max_up_movement:float = 2000
 export var dash_force := 1500.0
 
 var movement:Vector2 = Vector2.ZERO
@@ -14,10 +15,12 @@ var dashed:bool = false
 var alive = true setget ,get_is_alive
 var shrink_number = 5
 var shrink_scale = 0.90
+var impulsed = false
 
 onready var skin:AnimatedSprite = $Skin/AnimatedSprite
 onready var tween_dash:Tween = $TweenDash
 onready var dash_cool_down:Timer = $TweenDash/CoolDown
+onready var foot_position:Position2D = $FootPosition
 
 
 func set_can_dash(value:bool) -> void:
@@ -28,6 +31,9 @@ func set_input_enabled(value: bool) -> void:
 
 func get_is_alive() -> bool:
 	return alive
+
+func get_foot_position() -> float:
+	return foot_position.global_position.y
 
 
 func _ready() -> void:
@@ -47,25 +53,26 @@ func _physics_process(_delta: float) -> void:
 	manage_input()
 	if not dashed:
 		movement.y += gravity
-		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
-		movement.x = get_horizontal_movement() * speed	
+		movement.y = clamp(movement.y, -max_up_movement, max_fall_movement)
+		movement.x = get_horizontal_movement() * speed
+		
 # warning-ignore:return_value_discarded
 	move_and_slide(movement, Vector2.UP, false, 4, PI * 0.25, false)
 	
 	if is_on_floor():
 		movement.y = 0
 		can_jump = true
+		impulsed = false
 	
 	if is_on_ceiling():
 		movement.y = gravity
-		
 
 
 func manage_input() -> void:
 	if Input.is_action_just_pressed("jump") and can_jump:
 		manage_jump()
 	
-	if Input.is_action_just_released("jump"):
+	if Input.is_action_just_released("jump") and not impulsed:
 		if movement.y > 0.0:
 			movement.y = -jump_force * 0.1
 		else:
@@ -97,7 +104,7 @@ func manage_jump() -> void:
 	if can_jump:
 		movement.y = 0.0
 		movement.y = -jump_force
-		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
+		movement.y = clamp(movement.y, -max_up_movement, max_fall_movement)
 		skin.play("jump")
 
 
@@ -138,7 +145,7 @@ func _on_CoolDown_timeout() -> void:
 	can_dash = true
 
 
-func Destroy() -> void:
+func destroy() -> void:
 	alive = false
 	input_enabled = false
 	rotation_degrees = 90
@@ -154,3 +161,10 @@ func shrink() -> void:
 		shrink_number -= 1
 	else:
 		Events.emit_signal("max_level_growths_reached")
+
+
+func impulse(value:float) -> void:
+	movement.y = 0.0
+	movement.y = -value
+	can_jump = false
+	impulsed = true

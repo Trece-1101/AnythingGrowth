@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://game/items/spike/Spike.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/levels/world/TileMapGreenWorld.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/levels/world/TileMapProps.tscn" type="PackedScene" id=4]
@@ -8,7 +8,6 @@
 [ext_resource path="res://game/items/ball/Ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/items/platform/Platform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/levels/Level.gd" type="Script" id=8]
-[ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=9]
 
 [node name="TestLevel" type="Node"]
 pause_mode = 2
@@ -35,8 +34,5 @@ position = Vector2( 81, 476 )
 
 [node name="AutoTileMapGreenWorld" parent="." instance=ExtResource( 5 )]
 
-[node name="Spike" parent="." instance=ExtResource( 1 )]
-position = Vector2( 162, 475 )
-
-[node name="SpikerEnemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 208, 473 )
+[node name="Spring" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 476 )

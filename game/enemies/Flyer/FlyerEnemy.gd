@@ -57,7 +57,7 @@ func _on_Tween_tween_all_completed() -> void:
 
 
 
-func Destroy() -> void:
+func destroy() -> void:
 	timer.stop()
 	set_process(false)
 	$AnimationPlayer.play("die")

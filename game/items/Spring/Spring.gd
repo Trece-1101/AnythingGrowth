@@ -1,8 +1,14 @@
 extends GrowthItem
 
+export var impulse:float = 100.0
+
+
 func Interact(body: Node) -> void:
-	if body.has_method("destroy"):
-		body.destroy()
+	var from_above:bool = body.get_foot_position() > $Detector/CollisionShape2D.global_position.y
+	if body.has_method("impulse") and from_above:
+		$AnimationPlayer.play("spring")
+		print(impulse)
+		body.impulse(impulse)
 
 func growth() -> void:
 	var tween_g := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
@@ -11,3 +17,6 @@ func growth() -> void:
 	growth_number -= 1
 	$CoolDown.start()
 	modify_physics()
+
+func modify_physics() -> void:
+	impulse *= 1.08

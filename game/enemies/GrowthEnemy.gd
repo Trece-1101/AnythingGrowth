@@ -34,13 +34,13 @@ func modify_physics() -> void:
 
 
 func Die(body: Node) -> void:
-	if body.has_method("Destroy"):
-		body.Destroy()
+	if body.has_method("destroy"):
+		body.destroy()
 	
-	Destroy()
+	destroy()
 
 
-func Destroy() -> void:
+func destroy() -> void:
 	queue_free()
 
 

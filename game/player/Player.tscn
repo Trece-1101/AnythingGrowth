@@ -12,7 +12,6 @@ script = ExtResource( 3 )
 speed = 160.0
 gravity = 24.0
 jump_force = 400.0
-max_movement_y = 450.0
 dash_force = 1000.0
 
 [node name="Skin" parent="." instance=ExtResource( 1 )]
@@ -27,6 +26,8 @@ shape = SubResource( 1 )
 [node name="CoolDown" type="Timer" parent="TweenDash"]
 wait_time = 0.8
 one_shot = true
+
+[node name="FootPosition" type="Position2D" parent="."]
 
 [connection signal="tween_all_completed" from="TweenDash" to="." method="_on_TweenDash_tween_all_completed"]
 [connection signal="timeout" from="TweenDash/CoolDown" to="." method="_on_CoolDown_timeout"]

@@ -6,7 +6,7 @@ func modify_physics() -> void:
 	var new_animation_speed = animation.playback_speed * 0.8
 	animation.playback_speed = new_animation_speed
 
-func Destroy() -> void:
+func destroy() -> void:
 	$AnimationPlayer.play("die")
 	$SpriteAnimator.visible = true
 	$SpriteAnimator.play("explode")

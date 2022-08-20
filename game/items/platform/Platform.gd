@@ -11,5 +11,5 @@ func set_label_text(max_weight:float) -> void:
 	$Label.text = "L:{load}".format({"load": int(max_weight)})
 
 
-func Destroy() -> void:
+func destroy() -> void:
 	$AnimationPlayer.play("destroy")

@@ -41,5 +41,5 @@ func change_direction() -> void:
 	scale.x *= -1
 
 
-func Destroy() -> void:
+func destroy() -> void:
 	$AnimationPlayer.play("die")
