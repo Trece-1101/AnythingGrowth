@@ -18,7 +18,7 @@ func _ready() -> void:
 		
 	if path_points:
 		set_process(true)
-		if not path_points:
+		if not path_points and Engine.editor_hint:
 			printerr("Falta ruta para la plataforma")
 			return
 	
@@ -26,6 +26,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Engine.editor_hint:
+		return
+	
 	if !started:
 		started = true
 		position = path_points.get_start_position()
@@ -54,3 +57,5 @@ func Destroy() -> void:
 func modify_physics() -> void:
 	var new_animation_speed = $SpriteAnimator.speed_scale * 0.9
 	$SpriteAnimator.speed_scale = new_animation_speed
+	speed *= 0.85
+

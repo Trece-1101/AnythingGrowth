@@ -7,9 +7,16 @@ func modify_physics() -> void:
 	mass *= 1.2
 	
 
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	var collisions:Array = get_colliding_bodies()
 	
 	for collision in collisions:
 		if collision.is_in_group("platform"):
 			collision.should_break(weight)
+		elif collision.is_in_group("player"):
+			collision.Destroy()
+
+func Interact(body: Node) -> void:
+	if body.has_method("Destroy"):
+		body.Destroy()

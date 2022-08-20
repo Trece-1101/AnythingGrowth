@@ -9,7 +9,7 @@ var scale_modifier:float = 1.20
 onready var animation:AnimationPlayer = $AnimationPlayer
 onready var sprite:Sprite = $Sprite
 onready var detector:Area2D = $Detector
-onready var body:CollisionShape2D = $Body
+onready var body_collider:CollisionShape2D = $Body
 
 
 func set_can_growth(value: bool) -> void:
@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func growth() -> void:
 	var tween_g := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
-	tween_g.tween_property(body, "scale", body.scale * scale_modifier, $CoolDown.wait_time)
+	tween_g.tween_property(body_collider, "scale", body_collider.scale * scale_modifier, $CoolDown.wait_time)
 	tween_g.parallel().tween_property(sprite, "scale", sprite.scale * scale_modifier, $CoolDown.wait_time)
 	tween_g.parallel().tween_property(detector, "scale", detector.scale * scale_modifier, $CoolDown.wait_time)
 	Events.emit_signal("shrink_player")
@@ -39,6 +39,7 @@ func modify_physics() -> void:
 	pass
 
 
+# warning-ignore:unused_argument
 func Interact(body: Node) -> void:
 	queue_free()
 

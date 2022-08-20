@@ -46,7 +46,7 @@ collision_layer = 136
 collision_mask = 3
 input_pickable = true
 mass = 500.0
-gravity_scale = 5.0
+gravity_scale = 8.0
 contacts_reported = 5
 contact_monitor = true
 can_sleep = false
@@ -62,6 +62,9 @@ anims/rotate = SubResource( 2 )
 
 [node name="Body" parent="." index="3"]
 shape = SubResource( 3 )
+
+[node name="Detector" parent="." index="4"]
+collision_mask = 112
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]
 shape = SubResource( 4 )

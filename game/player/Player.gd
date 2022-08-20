@@ -50,7 +50,7 @@ func _physics_process(_delta: float) -> void:
 		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
 		movement.x = get_horizontal_movement() * speed	
 # warning-ignore:return_value_discarded
-	move_and_slide(movement, Vector2.UP)
+	move_and_slide(movement, Vector2.UP, false, 4, PI * 0.25, false)
 	
 	if is_on_floor():
 		movement.y = 0
@@ -156,3 +156,7 @@ func shrink() -> void:
 		Events.emit_signal("max_level_growths_reached")
 
 
+func pause(value:bool) ->void:
+	input_enabled = value
+	set_process(value)
+	set_physics_process(value)

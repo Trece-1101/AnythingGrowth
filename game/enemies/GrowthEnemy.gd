@@ -4,6 +4,7 @@ var can_growth:bool = true setget set_can_growth
 var is_mouse_above:bool = false
 var is_cooled_down:bool = true
 var growth_number:int = 5
+var scale_modifier:float = 1.20
 
 
 func set_can_growth(value: bool) -> void:
@@ -21,7 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func growth() -> void:
 	var tween_g := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
-	tween_g.tween_property(self, "scale", scale * 1.20, $CoolDown.wait_time)
+	tween_g.tween_property(self, "scale", scale * scale_modifier, $CoolDown.wait_time)
 	Events.emit_signal("shrink_player")
 	growth_number -= 1
 	$CoolDown.start()
@@ -58,3 +59,7 @@ func _on_CoolDown_timeout() -> void:
 func _on_Detector_body_entered(body: Node) -> void:
 	Die(body)
 
+
+func pause(value:bool) ->void:
+	set_process(value)
+	set_physics_process(value)

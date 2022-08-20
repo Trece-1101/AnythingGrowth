@@ -167,7 +167,7 @@ animations = [ {
 radius = 9.0
 
 [node name="MineEnemy" instance=ExtResource( 2 )]
-collision_layer = 8
+collision_layer = 40
 input_pickable = true
 script = ExtResource( 12 )
 
