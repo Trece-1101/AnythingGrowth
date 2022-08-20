@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/items/tile_0064.png" type="Texture" id=1]
+[ext_resource path="res://assets/items/tile_0065.png" type="Texture" id=2]
+[ext_resource path="res://assets/items/tile_0066.png" type="Texture" id=3]
+[ext_resource path="res://game/items/Switch.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "switch_to_left",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "switch_to_right",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 6 )
+
+[node name="Switch" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -9 )
+frames = SubResource( 1 )
+animation = "switch_to_left"
+
+[node name="Detector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2( 0, -6 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]

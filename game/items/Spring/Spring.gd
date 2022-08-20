@@ -7,7 +7,6 @@ func Interact(body: Node) -> void:
 	var from_above:bool = body.get_foot_position() > $Detector/CollisionShape2D.global_position.y
 	if body.has_method("impulse") and from_above:
 		$AnimationPlayer.play("spring")
-		print(impulse)
 		body.impulse(impulse)
 
 func growth() -> void:
