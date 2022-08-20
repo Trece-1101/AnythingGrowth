@@ -83,6 +83,7 @@ config/icon="res://icon.png"
 Events="*res://game/autoloads/Events.gd"
 Utils="*res://game/autoloads/Utils.gd"
 DrawUtils="*res://game/autoloads/DrawUtils.gd"
+GameMusic="*res://game/autoloads/GameMusic.tscn"
 
 [debug]
 

@@ -39,7 +39,8 @@ func get_foot_position() -> float:
 
 func _ready() -> void:
 	Events.connect("shrink_player", self, "shrink")
-	Events.connect("level_ended", self, "player_enabled", [false])
+	Events.connect("level_win", self, "player_enabled", [false])
+	Events.connect("level_lose", self, "player_enabled", [false])
 	skin.play("idle")
 
 
