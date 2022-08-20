@@ -2,7 +2,8 @@ class_name Player extends KinematicBody2D
 
 export var speed:float = 400.0
 export var gravity:float = 20.0
-export var jump_force:float = 400.0
+export var jump_force:float = 10.0
+export var max_movement_y: float = 600
 export var dash_force := 1500.0
 
 var movement:Vector2 = Vector2.ZERO
@@ -32,15 +33,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not input_enabled:
 		return
 	
-	if event.is_action_pressed("jump"):
-		manage_jump()
-	elif event.is_action_pressed("dash") and can_dash and not dashed:
+	if event.is_action_pressed("dash") and can_dash and not dashed:
 		dash()
 
 
 func _physics_process(_delta: float) -> void:
+	manage_input()
 	if not dashed:
 		movement.y += gravity
+		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
 	
 	if not dashed:
 		movement.x = get_horizontal_movement() * speed
@@ -54,6 +55,22 @@ func _physics_process(_delta: float) -> void:
 	
 	if is_on_ceiling():
 		movement.y = gravity
+		
+
+
+func manage_input() -> void:
+	if Input.is_action_just_pressed("jump") and can_jump:
+		manage_jump()
+	
+	if Input.is_action_just_released("jump"):
+		if movement.y > 0.0:
+			movement.y = -jump_force * 0.1
+		else:
+			movement.y = 0.0
+		can_jump = false
+	
+	if Input.is_action_just_pressed("debug_shrink"):
+		shrink()
 
 
 func get_horizontal_movement() -> float:
@@ -80,6 +97,7 @@ func manage_jump() -> void:
 	if can_jump:
 		movement.y = 0.0
 		movement.y = -jump_force
+		movement.y = clamp(movement.y, -max_movement_y, max_movement_y)
 		skin.play("jump")
 
 
@@ -119,3 +137,9 @@ func die() -> void:
 	input_enabled = false
 	rotation_degrees = 90
 	skin.play("dead")
+
+
+func shrink() -> void:
+	scale *= 0.90
+	jump_force *= 0.98
+	speed *= 1.10
