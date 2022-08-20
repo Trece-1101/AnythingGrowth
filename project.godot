@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/player/FloorDetector.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "GrowthEnemy",
+"language": "GDScript",
+"path": "res://game/enemies/GrowthEnemy.gd"
+}, {
 "base": "Button",
 "class": "MainButton",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "FloorDetector": "",
+"GrowthEnemy": "",
 "MainButton": "",
 "Player": ""
 }
@@ -39,6 +45,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://game/autoloads/Events.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 

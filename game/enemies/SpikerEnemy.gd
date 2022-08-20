@@ -1,4 +1,4 @@
-extends "res://game/enemies/GrowthEnemy.gd"
+extends GrowthEnemy
 
 func modify_physics() -> void:
 	reduce_speed(0.85)
@@ -16,7 +16,7 @@ func reduce_speed(value:float) -> void:
 func _ready() -> void:
 	$SpriteAnimator.play("move")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not floor_detector.is_colliding() or wall_detector.is_colliding():
 		change_direction()
 
@@ -35,3 +35,7 @@ func _physics_process(_delta: float) -> void:
 func change_direction() -> void:
 	speed.x *= -1
 	scale.x *= -1
+
+
+func Destroy() -> void:
+	$AnimationPlayer.play("die")

@@ -1,4 +1,4 @@
-extends KinematicBody2D
+class_name GrowthEnemy extends KinematicBody2D
 
 var can_growth:bool = false
 var is_cooled_down:bool = true
@@ -23,6 +23,17 @@ func modify_physics() -> void:
 	pass
 
 
+func Die(body: Node) -> void:
+	if body.has_method("Destroy"):
+		body.Destroy()
+	
+	Destroy()
+
+
+func Destroy() -> void:
+	queue_free()
+
+
 func _on_mouse_entered() -> void:
 	can_growth = true
 
@@ -33,3 +44,8 @@ func _on_mouse_exited() -> void:
 
 func _on_CoolDown_timeout() -> void:
 	is_cooled_down = true
+
+
+func _on_Detector_body_entered(body: Node) -> void:
+	Die(body)
+

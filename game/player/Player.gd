@@ -139,7 +139,7 @@ func _on_CoolDown_timeout() -> void:
 	can_dash = true
 
 
-func die() -> void:
+func Destroy() -> void:
 	alive = false
 	input_enabled = false
 	rotation_degrees = 90
