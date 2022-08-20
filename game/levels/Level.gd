@@ -5,7 +5,7 @@ export(String, FILE, "*.tscn") var next_level = ""
 export var seconds_to_finish:int = 60
 
 onready var level_camera:Camera2D = $Camera
-onready var hud:CanvasLayer = $Camera/HUD
+onready var hud:HUD = $Camera/HUD
 
 func _ready() -> void:
 	hud.set_level_text(self.name)

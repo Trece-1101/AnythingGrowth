@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name HUD extends CanvasLayer
 
 export(String, FILE, "*.tscn") var main_menu = ""
 export(String, FILE, "*.tscn") var level_selection_menu = ""
@@ -13,8 +13,12 @@ func set_time_to_finish(time:int) -> void:
 	time_left = time
 	update_time_label()
 
+func set_growths_remaining(growths:int) -> void:
+	update_growth_label(growths)
+
 
 func _ready() -> void:
+	Events.connect("growth_clicked", self, "set_growths_remaining")
 	$LoseLabel.visible = false
 
 
@@ -45,6 +49,11 @@ func update_time_label() -> void:
 		lose()
 	else:
 		$LabelTime.text = "{sec}  seconds left".format({"sec" : time_left})
+
+
+func update_growth_label(value:int) -> void:
+	$GrowthLeft.text = "{g}  growths left".format({"g": value})
+
 
 
 func lose() -> void:

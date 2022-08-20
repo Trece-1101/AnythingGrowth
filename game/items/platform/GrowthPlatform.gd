@@ -88,7 +88,8 @@ func _on_CoolDown_timeout() -> void:
 
 func _on_PickableArea_mouse_entered() -> void:
 	is_mouse_above = true
-	set_label_text(max_weight_allowed * 1.2)
+	if can_growth:
+		set_label_text(max_weight_allowed * 1.2)
 
 
 func _on_PickableArea_mouse_exited() -> void:

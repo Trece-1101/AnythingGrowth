@@ -33,7 +33,8 @@ func Interact(body: Node) -> void:
 
 func _on_mouse_entered() -> void:
 	._on_mouse_entered()
-	set_label_text(weight * 1.2)
+	if can_growth:
+		set_label_text(weight * 1.2)
 
 
 func _on_mouse_exited() -> void:

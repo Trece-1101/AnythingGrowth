@@ -42,6 +42,8 @@ func _ready() -> void:
 	Events.connect("level_win", self, "player_enabled", [false])
 	Events.connect("level_lose", self, "player_enabled", [false])
 	skin.play("idle")
+	yield(owner,"ready")
+	Events.emit_signal("growth_clicked", shrink_number)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -163,6 +165,7 @@ func shrink() -> void:
 		jump_force *= 0.98
 		speed *= 1.10
 		shrink_number -= 1
+		Events.emit_signal("growth_clicked", shrink_number)
 	else:
 		Events.emit_signal("max_level_growths_reached")
 
