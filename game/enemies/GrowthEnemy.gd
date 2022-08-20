@@ -44,14 +44,6 @@ func Destroy() -> void:
 	queue_free()
 
 
-func _on_mouse_entered() -> void:
-	is_mouse_above = true
-
-
-func _on_mouse_exited() -> void:
-	is_mouse_above = false
-
-
 func _on_CoolDown_timeout() -> void:
 	is_cooled_down = true
 
@@ -60,6 +52,9 @@ func _on_Detector_body_entered(body: Node) -> void:
 	Die(body)
 
 
-func pause(value:bool) ->void:
-	set_process(value)
-	set_physics_process(value)
+func _on_PickableArea_mouse_entered() -> void:
+	is_mouse_above = true
+
+
+func _on_PickableArea_mouse_exited() -> void:
+	is_mouse_above = false

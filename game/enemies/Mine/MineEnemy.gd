@@ -13,3 +13,5 @@ func Destroy() -> void:
 
 func _on_SpriteAnimator_animation_finished() -> void:
 	$SpriteAnimator.queue_free()
+
+

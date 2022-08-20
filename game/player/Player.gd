@@ -154,9 +154,3 @@ func shrink() -> void:
 		shrink_number -= 1
 	else:
 		Events.emit_signal("max_level_growths_reached")
-
-
-func pause(value:bool) ->void:
-	input_enabled = value
-	set_process(value)
-	set_physics_process(value)
