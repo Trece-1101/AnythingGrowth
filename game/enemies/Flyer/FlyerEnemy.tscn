@@ -211,7 +211,7 @@ input_pickable = true
 script = ExtResource( 2 )
 is_path_follower = false
 speed = 100.0
-timer_wait_time = 0.3
+wait_time = 1.0
 
 [node name="Body" parent="." index="0"]
 shape = SubResource( 1 )

@@ -2,19 +2,27 @@ extends GrowthEnemy
 
 export var is_path_follower = false
 export(float, 50.0, 250.0, 10.0) var speed:float = 100.0
-export var timer_wait_time:float = 0.3
+export(float, 0.8, 2.0, 0.2) var wait_time: float = 1.0 setget set_wait_time
 
 
 var path_points = null
 
 onready var started = false
 onready var timer:Timer = $Timer
+onready var tween: Tween = $Tween
+
+
+func set_wait_time(value: float) -> void:
+	wait_time = value
+	if not timer:
+		yield(self, "ready")
+	timer.wait_time = wait_time
+
 
 func _ready() -> void:
 	set_process(false)
 	if is_path_follower:
 		path_points = get_node_or_null("PathPoints")
-		timer.wait_time = timer_wait_time
 		
 	if path_points:
 		set_process(true)
@@ -40,7 +48,7 @@ func _on_Timer_timeout() -> void:
 	var distance_to_target := position.distance_to(target_position)
 	var tween := create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "position", target_position, distance_to_target / speed)
-	
+
 	tween.connect("finished", self, "_on_Tween_tween_all_completed")
 
 
@@ -53,6 +61,7 @@ func Destroy() -> void:
 	timer.stop()
 	set_process(false)
 	$AnimationPlayer.play("die")
+
 
 func modify_physics() -> void:
 	var new_animation_speed = $SpriteAnimator.speed_scale * 0.9

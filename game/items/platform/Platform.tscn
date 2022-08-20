@@ -279,6 +279,9 @@ shape = SubResource( 5 )
 
 [node name="CoolDown" type="Timer" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="mouse_entered" from="PickableArea" to="." method="_on_PickableArea_mouse_entered"]
 [connection signal="mouse_exited" from="PickableArea" to="." method="_on_PickableArea_mouse_exited"]
 [connection signal="timeout" from="CoolDown" to="." method="_on_CoolDown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
