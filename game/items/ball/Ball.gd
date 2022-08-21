@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 	for collision in collisions:
 		if collision.is_in_group("platform"):
 			collision.should_break(weight)
-		elif collision.is_in_group("player"):
-			collision.destroy()
+#		elif collision.is_in_group("player"):
+#			collision.destroy()
 
 func Interact(body: Node) -> void:
 	if body.has_method("destroy"):

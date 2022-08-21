@@ -2,7 +2,7 @@ class_name GrowthPlatform extends Node2D
 
 export var is_path_follower = false
 export(float, 50.0, 250.0, 10.0) var speed:float = 100.0
-export(float, 0.8, 2.0, 0.2) var wait_time: float = 1.2 setget set_wait_time
+export(float, 0.2, 2.0, 0.2) var wait_time: float = 1.2 setget set_wait_time
 export var max_weight_allowed:float = 10000.0
 
 var can_growth:bool = true setget set_can_growth
