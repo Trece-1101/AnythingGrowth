@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/icons/return.png" type="Texture" id=6]
 
 [node name="TutorialOne" instance=ExtResource( 1 )]
+next_level = "res://game/levels/tutorial/TutorialTwo.tscn"
 seconds_to_finish = 120
 is_tutorial = true
 

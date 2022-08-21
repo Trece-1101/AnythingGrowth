@@ -45,8 +45,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 16.0 ],
 "_edit_vertical_guides_": [ 640.437 ]
 }
-main_menu = "res://game/gui/menus/MainMenu.tscn"
-level_selection_menu = "res://game/gui/menus/LevelSelection.tscn"
 
 [node name="BtnRetry" type="Button" parent="."]
 anchor_left = 0.5
@@ -75,11 +73,9 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 icon = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BtnSelection" type="Button" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -155,5 +151,4 @@ autostart = true
 
 [connection signal="pressed" from="BtnRetry" to="." method="_on_BtnRetry_pressed"]
 [connection signal="pressed" from="BtnMenu" to="." method="_on_BtnMenu_pressed"]
-[connection signal="pressed" from="BtnSelection" to="." method="_on_BtnSelection_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

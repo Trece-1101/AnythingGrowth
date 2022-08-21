@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://game/ui/MenuButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/characters/character_0024.png" type="Texture" id=5]
 [ext_resource path="res://assets/characters/character_0008.png" type="Texture" id=6]
 [ext_resource path="res://assets/characters/character_0015.png" type="Texture" id=7]
+[ext_resource path="res://game/menus/MainMenu.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -323,6 +324,7 @@ tracks/7/keys = {
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -358,8 +360,9 @@ texture = ExtResource( 4 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -305.0
-margin_right = -305.0
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="TextureRect" type="ColorRect" parent="ButtonsWrapper"]
 anchor_right = 1.0

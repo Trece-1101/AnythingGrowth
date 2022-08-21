@@ -10,6 +10,7 @@
 [ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=8]
 
 [node name="Level10" instance=ExtResource( 1 )]
+next_level = "res://game/menus/Credits.tscn"
 seconds_to_finish = 45
 
 [node name="TextureRect" parent="." index="0"]
@@ -41,7 +42,7 @@ position = Vector2( 410, 249 )
 
 [node name="SpikerEnemy" parent="EnemiesContainer" index="5" instance=ExtResource( 5 )]
 position = Vector2( 665, 185 )
-speed = Vector2( -300, 100 )
+speed = Vector2( -250, 100 )
 
 [node name="Platform" parent="PlatformsContainer" index="0" instance=ExtResource( 6 )]
 position = Vector2( 86, 156 )

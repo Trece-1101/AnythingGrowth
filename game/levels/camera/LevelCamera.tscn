@@ -52,7 +52,7 @@ zoom = Vector2( 0.6, 0.6 )
 script = ExtResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
-main_menu = ""
+main_menu = "res://game/menus/MainMenu.tscn"
 level_selection_menu = ""
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

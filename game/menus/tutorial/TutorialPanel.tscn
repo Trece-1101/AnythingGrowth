@@ -66,8 +66,5 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/normal = ExtResource( 4 )
 text = "Continuar"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

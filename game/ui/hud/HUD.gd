@@ -1,6 +1,6 @@
 class_name HUD extends CanvasLayer
 
-export(String, FILE, "*.tscn") var main_menu = ""
+export(String, FILE, "*.tscn") var main_menu = "res://game/menus/MainMenu.tscn"
 export(String, FILE, "*.tscn") var level_selection_menu = ""
 var level_text:String setget set_level_text
 var time_left:int
@@ -28,6 +28,7 @@ func _on_BtnRetry_pressed() -> void:
 
 
 func _on_BtnMenu_pressed() -> void:
+	print(main_menu)
 	if main_menu != "":
 		GameMusic.play_button()
 		get_tree().change_scene(main_menu)
