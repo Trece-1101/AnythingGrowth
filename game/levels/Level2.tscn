@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://game/enemies/Mine/MineEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/items/platform/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/items/spike/Spike.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=8]
 
 [node name="Level2" instance=ExtResource( 1 )]
 next_level = "res://game/levels/Level3.tscn"
@@ -38,13 +39,16 @@ position = Vector2( 481, 230 )
 position = Vector2( 436, 182 )
 
 [node name="Platform" parent="PlatformsContainer" index="0" instance=ExtResource( 6 )]
-position = Vector2( 593, 228 )
+position = Vector2( 593, 208 )
 
 [node name="Spike" parent="SpikesContainer" index="0" instance=ExtResource( 7 )]
 position = Vector2( 542, 307 )
 
 [node name="Spike2" parent="SpikesContainer" index="1" instance=ExtResource( 7 )]
 position = Vector2( 567, 307 )
+
+[node name="Spring" parent="SpringContainer" index="0" instance=ExtResource( 8 )]
+position = Vector2( 434, 221 )
 
 [node name="ExitArea" parent="." index="12"]
 position = Vector2( 753, 126 )

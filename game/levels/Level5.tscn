@@ -36,6 +36,6 @@ position = Vector2( 286, 425 )
 position = Vector2( 62, -86 )
 
 [node name="ExitArea" parent="." index="12"]
-position = Vector2( 753, 327 )
+position = Vector2( 753, 329 )
 
 [editable path="SwitchsDoorsContainer/Switch"]

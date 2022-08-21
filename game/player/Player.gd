@@ -116,6 +116,7 @@ func manage_jump() -> void:
 
 func dash() -> void:
 	dashed = true
+	sfx.play_dash_sfx()
 	can_dash = false
 	movement = Vector2.ZERO
 # warning-ignore:return_value_discarded
@@ -156,6 +157,7 @@ func destroy() -> void:
 	input_enabled = false
 	rotation_degrees = 90
 	skin.play("dead")
+	sfx.play_die_sfx()
 	yield(get_tree().create_timer(0.2),"timeout")
 	get_tree().reload_current_scene()
 
@@ -180,3 +182,4 @@ func impulse(value:float) -> void:
 	movement.y = -value
 	can_jump = false
 	impulsed = true
+	sfx.play_impulse_sfx()

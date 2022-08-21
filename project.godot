@@ -49,10 +49,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/ui/MenuButton.gd"
 }, {
-"base": "Line2D",
+"base": "Reference",
 "class": "PathPoints",
 "language": "GDScript",
-"path": "res://game/PathFollow/PathPoints.gd"
+"path": "res://game/path_follow/PathPoints.gd"
 }, {
 "base": "Node2D",
 "class": "Platform",
@@ -115,6 +115,13 @@ unused=false
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 

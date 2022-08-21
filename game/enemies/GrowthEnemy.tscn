@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/enemies/GrowthEnemy.gd" type="Script" id=1]
 [ext_resource path="res://game/ui/GrowthFeedback.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/enemies/GrowthSFX.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/enemies/DieSFX.tscn" type="PackedScene" id=4]
 
 [node name="GrowthEnemy" type="KinematicBody2D"]
 z_index = 15
@@ -30,6 +32,10 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="PickableCollider" type="CollisionShape2D" parent="PickableArea"]
+
+[node name="GrowthSFX" parent="." instance=ExtResource( 3 )]
+
+[node name="DieSFX" parent="." instance=ExtResource( 4 )]
 
 [connection signal="timeout" from="CoolDown" to="." method="_on_CoolDown_timeout"]
 [connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]

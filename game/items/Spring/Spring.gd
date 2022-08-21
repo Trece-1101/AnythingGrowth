@@ -10,6 +10,7 @@ func Interact(body: Node) -> void:
 		body.impulse(impulse)
 
 func growth() -> void:
+	$GrowthSFX.play()
 	var tween_g := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 	tween_g.tween_property(self, "scale", scale * scale_modifier, $CoolDown.wait_time)
 	Events.emit_signal("shrink_player")

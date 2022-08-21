@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/player/PlayerSFX.gd" type="Script" id=1]
-[ext_resource path="res://assets/sounds/ui/back_001.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/sfx/Jump13.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/sfx/dieO.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/sfx/dashO.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/sfx/impulseO.ogg" type="AudioStream" id=5]
 
 [node name="SFX" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "PlayerSFX"
+
+[node name="Dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "PlayerSFX"
+
+[node name="Impulse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "PlayerSFX"
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 bus = "PlayerSFX"

@@ -45,4 +45,5 @@ func change_direction() -> void:
 
 
 func destroy() -> void:
+	$DieSFX.play()
 	$AnimationPlayer.play("die")

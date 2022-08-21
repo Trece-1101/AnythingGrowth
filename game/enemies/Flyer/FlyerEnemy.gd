@@ -58,6 +58,7 @@ func _on_Tween_tween_all_completed() -> void:
 
 
 func destroy() -> void:
+	$DieSFX.play()
 	timer.stop()
 	set_process(false)
 	$AnimationPlayer.play("die")

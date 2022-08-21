@@ -7,6 +7,7 @@ func modify_physics() -> void:
 	animation.playback_speed = new_animation_speed
 
 func destroy() -> void:
+	$DieSFX.play()
 	$AnimationPlayer.play("die")
 	$SpriteAnimator.visible = true
 	$SpriteAnimator.play("explode")

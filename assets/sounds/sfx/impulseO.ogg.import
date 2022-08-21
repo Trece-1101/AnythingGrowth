@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impulseO.ogg-7658e06ca01e13df965935ebc9345771.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/impulseO.ogg"
+dest_files=[ "res://.import/impulseO.ogg-7658e06ca01e13df965935ebc9345771.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

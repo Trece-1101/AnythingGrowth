@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/visuals/backgrounds/background_0004.png" type="Texture" id=2]
 [ext_resource path="res://game/items/ball/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/items/platform/Platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/enemies/Mine/MineEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=6]
 
 [node name="Level7" instance=ExtResource( 1 )]
 next_level = "res://game/levels/Level8.tscn"
@@ -58,10 +59,16 @@ position = Vector2( 630, 184 )
 rotation = 0.659346
 
 [node name="Platform4" parent="PlatformsContainer" index="3" instance=ExtResource( 4 )]
-position = Vector2( 727, 304 )
-rotation = -0.65254
+position = Vector2( 732, 278 )
+rotation = -0.836019
 scale = Vector2( 1.4, 1.4 )
 max_weight_allowed = 20000.0
 
+[node name="Spring" parent="SpringContainer" index="0" instance=ExtResource( 6 )]
+position = Vector2( 343, 408 )
+
+[node name="Spring2" parent="SpringContainer" index="1" instance=ExtResource( 6 )]
+position = Vector2( 440, 408 )
+
 [node name="ExitArea" parent="." index="12"]
-position = Vector2( 13, 317 )
+position = Vector2( 11, 328 )

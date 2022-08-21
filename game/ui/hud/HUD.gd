@@ -61,6 +61,7 @@ func lose() -> void:
 	$Timer.queue_free()
 	$LabelTime.queue_free()
 	$LoseLabel.visible = true
+	GameMusic.play_lose()
 	Events.emit_signal("level_lose")
 	yield(get_tree().create_timer(0.5),"timeout")
 	get_tree().reload_current_scene()

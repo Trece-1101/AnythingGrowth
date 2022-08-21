@@ -30,5 +30,6 @@ func _get_configuration_warning():
 	return ""
 
 func change_level() -> void:
+	GameMusic.play_win()
 	if next_level != "":
 		level_camera.fade_out(next_level)

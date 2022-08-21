@@ -57,7 +57,7 @@ position = Vector2( 541, -27 )
 rotation = -1.5708
 
 [node name="ExitArea" parent="." index="12"]
-position = Vector2( 758, 353 )
+position = Vector2( 759, 364 )
 
 [editable path="SwitchsDoorsContainer/Switch"]
 [editable path="SwitchsDoorsContainer/Switch2"]

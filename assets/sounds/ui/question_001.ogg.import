@@ -11,5 +11,5 @@ dest_files=[ "res://.import/question_001.ogg-5914a1b14cb14e4bf0adb46355a21ae4.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

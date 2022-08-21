@@ -29,6 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func growth() -> void:
+	$GrowthSFX.play()
 	var tween_g := create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN)
 	tween_g.tween_property(body_collider, "scale", body_collider.scale * scale_modifier, $CoolDown.wait_time)
 	tween_g.parallel().tween_property(sprite, "scale", sprite.scale * scale_modifier, $CoolDown.wait_time)

@@ -29,4 +29,4 @@ rotation = 3.14159
 position = Vector2( 539, 187 )
 
 [node name="ExitArea" parent="." index="12"]
-position = Vector2( 12, 303 )
+position = Vector2( 6, 313 )

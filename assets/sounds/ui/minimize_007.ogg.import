@@ -11,5 +11,5 @@ dest_files=[ "res://.import/minimize_007.ogg-1a5b04a26f42beb54710fc24dbe15bca.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

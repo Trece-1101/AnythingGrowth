@@ -11,5 +11,5 @@ dest_files=[ "res://.import/scratch_003.ogg-a5cc565373158514c13a0327bac87de1.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
