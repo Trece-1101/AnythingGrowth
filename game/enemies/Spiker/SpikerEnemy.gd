@@ -10,6 +10,7 @@ var movement:Vector2 = Vector2.ZERO
 onready var floor_detector:RayCast2D = $"FloorDetector"
 onready var wall_detector:RayCast2D = $"WallDetector"
 
+
 func reduce_speed(value:float) -> void:
 	speed *= value
 	

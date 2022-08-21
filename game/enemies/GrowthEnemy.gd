@@ -6,12 +6,14 @@ var is_cooled_down:bool = true
 var growth_number:int = 5
 var scale_modifier:float = 1.20
 
+onready var visual_feedback:Sprite = $GrowthFeedback
 
 func set_can_growth(value: bool) -> void:
 	can_growth = value
 
 
 func _ready() -> void:
+	visual_feedback.visible = false
 	Events.connect("max_level_growths_reached", self, "set_can_growth", [false])
 
 
@@ -56,7 +58,24 @@ func _on_Detector_body_entered(body: Node) -> void:
 
 func _on_PickableArea_mouse_entered() -> void:
 	is_mouse_above = true
+	if can_growth:
+		change_visual_feedback(true)
 
 
 func _on_PickableArea_mouse_exited() -> void:
 	is_mouse_above = false
+	change_visual_feedback(false)
+
+
+func change_visual_feedback(value:bool) -> void:
+	visual_feedback.visible = value
+	if value:
+		visual_feedback.show()
+	else:
+		visual_feedback.hide()
+	
+	
+	
+	
+	
+	

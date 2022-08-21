@@ -8,14 +8,6 @@
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 10 )
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-} ]
-
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
@@ -195,6 +187,14 @@ tracks/7/keys = {
 } ]
 }
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
 [sub_resource type="CircleShape2D" id=4]
 radius = 7.0
 
@@ -208,9 +208,10 @@ input_pickable = true
 script = ExtResource( 2 )
 speed = Vector2( -30, 100 )
 
-[node name="Body" parent="." index="0"]
+[node name="GrowthFeedback" parent="." index="0"]
+visible = false
 position = Vector2( 0, -7 )
-shape = SubResource( 3 )
+scale = Vector2( 0.53125, 0.53125 )
 
 [node name="FloorDetector" type="RayCast2D" parent="." index="1"]
 position = Vector2( -11, -3 )
@@ -225,16 +226,20 @@ enabled = true
 cast_to = Vector2( -20, 0 )
 collision_mask = 2
 
-[node name="SpriteAnimator" parent="." index="4"]
-position = Vector2( 0, -10 )
-frames = SubResource( 2 )
-animation = "move"
+[node name="Body" parent="." index="3"]
+position = Vector2( 0, -7 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 anims/RESET = SubResource( 5 )
 anims/die = SubResource( 6 )
 
-[node name="Detector" parent="." index="6"]
+[node name="SpriteAnimator" parent="." index="6"]
+position = Vector2( 0, -10 )
+frames = SubResource( 2 )
+animation = "move"
+
+[node name="Detector" parent="." index="7"]
 collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]

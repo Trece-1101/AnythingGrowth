@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/items/GrowthItem.gd" type="Script" id=1]
+[ext_resource path="res://assets/hud/ui_circle.png" type="Texture" id=2]
 
 [node name="GrowthItem" type="RigidBody2D"]
 z_index = 16
@@ -29,6 +30,10 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
+
+[node name="GrowthFeedback" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
 
 [connection signal="timeout" from="CoolDown" to="." method="_on_CoolDown_timeout"]
 [connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]
