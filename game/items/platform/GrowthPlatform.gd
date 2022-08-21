@@ -35,6 +35,7 @@ func _ready() -> void:
 		path_points = get_node_or_null("PathPoints")
 		
 	if path_points:
+		growth_number = 0
 		set_process(true)
 		if not path_points and Engine.editor_hint:
 			printerr("Falta ruta para la plataforma")
