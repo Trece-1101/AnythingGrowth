@@ -5,6 +5,7 @@ var is_mouse_above:bool = false
 var is_cooled_down:bool = true
 var growth_number:int = 5
 var scale_modifier:float = 1.20
+var is_alive:bool = true
 
 onready var visual_feedback:GrowthFeedback = $GrowthFeedback
 
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("growth") and is_mouse_above and can_growth and is_cooled_down and growth_number > 0:
+	if event.is_action_pressed("growth") and is_mouse_above and can_growth and is_cooled_down and growth_number > 0 and is_alive:
 		growth()
 		check_visual_feedback()
 
@@ -38,6 +39,8 @@ func modify_physics() -> void:
 
 
 func Die(body: Node) -> void:
+	is_alive = false
+	visual_feedback.hide_feedback()
 	if body.has_method("destroy"):
 		body.destroy()
 	

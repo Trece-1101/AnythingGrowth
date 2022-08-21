@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AnythingGrowth"
-run/main_scene="res://game/levels/TestLevel.tscn"
+run/main_scene="res://game/levels/BaseLevel.tscn"
 config/icon="res://icon.png"
 
 [autoload]

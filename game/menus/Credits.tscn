@@ -109,8 +109,8 @@ margin_right = 412.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = SubResource( 1 )
-text = "Assets Credits
-"
+text = "Kenney Assets
+Visit kenney.nl"
 valign = 1
 
 [node name="Label4" type="Label" parent="VBoxContainer2"]
@@ -119,7 +119,7 @@ margin_right = 412.0
 margin_bottom = 412.0
 rect_min_size = Vector2( 412, 100 )
 custom_fonts/font = SubResource( 1 )
-text = "Music Credits"
+text = "Kenney Assets"
 valign = 1
 
 [node name="Godot Logo" type="Sprite" parent="."]

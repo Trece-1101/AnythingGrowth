@@ -19,6 +19,8 @@ func set_can_growth(value: bool) -> void:
 
 func _ready() -> void:
 	Events.connect("max_level_growths_reached", self, "set_can_growth", [false])
+	if rotation_degrees >= 170.0:
+		visual_feedback.rotation_degrees = 180
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("growth") and is_mouse_above and can_growth and is_cooled_down and growth_number > 0:
