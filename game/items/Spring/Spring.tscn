@@ -123,11 +123,15 @@ mode = 1
 script = ExtResource( 2 )
 impulse = 500.0
 
-[node name="Sprite" parent="." index="1"]
+[node name="GrowthFeedback" parent="." index="0"]
+position = Vector2( 0, -4 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="Sprite" parent="." index="2"]
 position = Vector2( 0, -9 )
 texture = ExtResource( 3 )
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="3"]
 anims/RESET = SubResource( 1 )
 anims/spring = SubResource( 2 )
 
@@ -136,18 +140,18 @@ position = Vector2( 0, -5 )
 shape = SubResource( 5 )
 disabled = true
 
-[node name="Detector" parent="." index="4"]
+[node name="Detector" parent="." index="5"]
 collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]
 position = Vector2( 0, -9 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D" parent="PickableArea" index="0"]
-position = Vector2( 0, -6 )
-shape = SubResource( 3 )
-
 [node name="SpriteFull" type="Sprite" parent="." index="6"]
 visible = false
 position = Vector2( 0, -9 )
 texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="PickableArea" index="0"]
+position = Vector2( 0, -6 )
+shape = SubResource( 3 )
