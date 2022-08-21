@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://game/items/Switch.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/levels/ExitArea.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game/levels/camera/LevelCamera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/enemies/Flyer/FlyerEnemy.tscn" type="PackedScene" id=12]
 
 [node name="TestLevel" type="Node"]
 pause_mode = 2
@@ -48,5 +49,8 @@ position = Vector2( 182, -89 )
 position = Vector2( 432, 335 )
 
 [node name="Camera" parent="." instance=ExtResource( 11 )]
+
+[node name="FlyerEnemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 136, 257 )
 
 [editable path="Switch"]

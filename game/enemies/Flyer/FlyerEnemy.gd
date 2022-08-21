@@ -9,7 +9,6 @@ var path_points = null
 
 onready var started = false
 onready var timer:Timer = $Timer
-onready var tween: Tween = $Tween
 
 
 func set_wait_time(value: float) -> void:

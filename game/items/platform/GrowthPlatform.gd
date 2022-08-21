@@ -73,6 +73,8 @@ func growth() -> void:
 	Events.emit_signal("shrink_player")
 	growth_number -= 1
 	$CoolDown.start()
+	if OS.is_debug_build():
+		print("growth - ", growth_number)
 	modify_physics()
 
 
