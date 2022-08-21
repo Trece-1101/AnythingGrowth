@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/platforms/tile_0048.png" type="Texture" id=1]
 [ext_resource path="res://assets/platforms/tile_0049.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://game/items/platform/GrowthPlatform.gd" type="Script" id=4]
 [ext_resource path="res://game/items/platform/PlatformBody.gd" type="Script" id=5]
 [ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://game/ui/GrowthFeedback.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27, 9 )
@@ -236,6 +237,15 @@ extents = Vector2( 41.8182, 16.3636 )
 scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 4 )
 
+[node name="GrowthFeedback" parent="." instance=ExtResource( 7 )]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="SpriteBox" parent="GrowthFeedback" index="1"]
+position = Vector2( 0, 47.1818 )
+
+[node name="SpriteCross" parent="GrowthFeedback" index="2"]
+position = Vector2( 0, 48.1818 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -18, 0 )
 texture = ExtResource( 1 )
@@ -285,3 +295,5 @@ shape = SubResource( 5 )
 [connection signal="mouse_exited" from="PickableArea" to="." method="_on_PickableArea_mouse_exited"]
 [connection signal="timeout" from="CoolDown" to="." method="_on_CoolDown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="GrowthFeedback"]

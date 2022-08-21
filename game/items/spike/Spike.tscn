@@ -14,16 +14,20 @@ extents = Vector2( 12, 6 )
 mode = 1
 script = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="1"]
+[node name="GrowthFeedback" parent="." index="0"]
+position = Vector2( 0, -4 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Sprite" parent="." index="2"]
 position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
 
-[node name="Body" parent="." index="3"]
+[node name="Body" parent="." index="4"]
 position = Vector2( 0, -3 )
 shape = SubResource( 2 )
 disabled = true
 
-[node name="Detector" parent="." index="4"]
+[node name="Detector" parent="." index="5"]
 collision_mask = 113
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detector" index="0"]

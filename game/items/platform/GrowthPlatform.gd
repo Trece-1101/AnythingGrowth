@@ -15,6 +15,7 @@ var path_points = null
 
 onready var started = false
 onready var timer:Timer = $Timer
+onready var visual_feedback:GrowthFeedback = $GrowthFeedback
 
 func set_wait_time(value: float) -> void:
 	wait_time = value
@@ -42,6 +43,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("growth") and is_mouse_above and can_growth and is_cooled_down and growth_number > 0:
 		growth()
+		check_visual_feedback()
 
 
 func _process(_delta: float) -> void:
@@ -90,6 +92,7 @@ func _on_CoolDown_timeout() -> void:
 
 func _on_PickableArea_mouse_entered() -> void:
 	is_mouse_above = true
+	check_visual_feedback()
 	if can_growth:
 		set_label_text(max_weight_allowed * 1.2)
 
@@ -97,6 +100,7 @@ func _on_PickableArea_mouse_entered() -> void:
 func _on_PickableArea_mouse_exited() -> void:
 	is_mouse_above = false
 	set_label_text(max_weight_allowed)
+	visual_feedback.hide_feedback()
 
 
 func set_label_text(max_weight:float) -> void:
@@ -105,3 +109,10 @@ func set_label_text(max_weight:float) -> void:
 
 func destroy() -> void:
 	$AnimationPlayer.play("destroy")
+
+
+func check_visual_feedback() -> void:
+	if not can_growth or not is_cooled_down or growth_number <= 0:
+		visual_feedback.show_disabled()
+	else:
+		visual_feedback.show_enabled(growth_number)

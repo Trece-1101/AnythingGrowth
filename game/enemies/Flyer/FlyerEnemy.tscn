@@ -9,14 +9,6 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.0
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "fly",
-"speed": 10.0
-} ]
-
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
@@ -199,6 +191,14 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "fly",
+"speed": 10.0
+} ]
+
 [sub_resource type="CircleShape2D" id=3]
 radius = 6.0
 
@@ -213,29 +213,31 @@ is_path_follower = false
 speed = 100.0
 wait_time = 1.0
 
-[node name="Body" parent="." index="0"]
-shape = SubResource( 1 )
+[node name="GrowthFeedback" parent="." index="0"]
+scale = Vector2( 0.5, 0.5 )
 
-[node name="SpriteAnimator" parent="." index="2"]
-frames = SubResource( 2 )
-animation = "fly"
-frame = 2
-playing = true
+[node name="Body" parent="." index="1"]
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/RESET = SubResource( 5 )
 anims/die = SubResource( 4 )
 anims/res = SubResource( 6 )
 
-[node name="Detector" parent="." index="4"]
+[node name="SpriteAnimator" parent="." index="4"]
+frames = SubResource( 2 )
+animation = "fly"
+playing = true
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 0.3
+
+[node name="Detector" parent="." index="6"]
 collision_mask = 97
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 3 )
-
-[node name="Timer" type="Timer" parent="." index="5"]
-wait_time = 0.3
 
 [node name="PickableCollider" parent="PickableArea" index="0"]
 shape = SubResource( 7 )

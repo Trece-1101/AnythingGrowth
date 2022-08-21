@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/enemies/GrowthEnemy.gd"
 }, {
+"base": "Node2D",
+"class": "GrowthFeedback",
+"language": "GDScript",
+"path": "res://game/ui/GrowthFeedback.gd"
+}, {
 "base": "RigidBody2D",
 "class": "GrowthItem",
 "language": "GDScript",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "Ball": "",
 "FloorDetector": "",
 "GrowthEnemy": "",
+"GrowthFeedback": "",
 "GrowthItem": "",
 "GrowthPlatform": "",
 "HUD": "",
@@ -154,6 +160,7 @@ pause={
 2d_physics/layer_7="enemy_spiker"
 2d_physics/layer_8="ball"
 2d_physics/layer_9="damage"
+2d_physics/layer_10="door"
 
 [physics]
 

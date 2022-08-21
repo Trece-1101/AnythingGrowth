@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://game/items/Spring/Spring.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/items/spike/Spike.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/levels/world/TileMapGreenWorld.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/levels/world/TileMapProps.tscn" type="PackedScene" id=4]
@@ -29,16 +29,8 @@ tile_data = PoolIntArray( 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0
 [node name="Platform" parent="." instance=ExtResource( 7 )]
 position = Vector2( 366, 264 )
 
-[node name="Ball" parent="." instance=ExtResource( 6 )]
-position = Vector2( 366, 242 )
-z_index = 0
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 81, 375 )
-
-[node name="Spring" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 375 )
-z_index = 0
 
 [node name="Switch" parent="." instance=ExtResource( 9 )]
 position = Vector2( 26, 375 )
@@ -55,6 +47,12 @@ position = Vector2( 617, 227 )
 position = Vector2( 136, 257 )
 
 [node name="SpikerEnemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( 246, 369 )
+position = Vector2( 288, 371 )
+
+[node name="Ball" parent="." instance=ExtResource( 6 )]
+position = Vector2( 365, 210 )
+
+[node name="Spike" parent="." instance=ExtResource( 1 )]
+position = Vector2( 374, 373 )
 
 [editable path="Switch"]

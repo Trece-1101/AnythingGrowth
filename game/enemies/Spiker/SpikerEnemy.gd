@@ -13,18 +13,19 @@ onready var wall_detector:RayCast2D = $"WallDetector"
 
 func reduce_speed(value:float) -> void:
 	speed *= value
-	
+
 
 func _ready() -> void:
 	$SpriteAnimator.play("move")
 	var random_start_direction = Utils.CreateRandomDirection()
+	if random_start_direction < 0.0:
+		visual_feedback.scale.x *= -1
 	speed.x *= random_start_direction
 	scale.x *= random_start_direction
 
 func _process(_delta: float) -> void:
 	if not floor_detector.is_colliding() or wall_detector.is_colliding():
 		change_direction()
-
 
 func _physics_process(_delta: float) -> void:
 	movement.x = speed.x
@@ -38,6 +39,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func change_direction() -> void:
+	visual_feedback.scale.x *= -1
 	speed.x *= -1
 	scale.x *= -1
 

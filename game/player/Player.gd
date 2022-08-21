@@ -156,6 +156,8 @@ func destroy() -> void:
 	input_enabled = false
 	rotation_degrees = 90
 	skin.play("dead")
+	yield(get_tree().create_timer(0.2),"timeout")
+	get_tree().reload_current_scene()
 
 
 func shrink() -> void:

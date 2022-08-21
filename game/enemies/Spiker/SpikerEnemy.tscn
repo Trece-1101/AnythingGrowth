@@ -209,7 +209,7 @@ script = ExtResource( 2 )
 speed = Vector2( -30, 100 )
 
 [node name="GrowthFeedback" parent="." index="0"]
-visible = false
+self_modulate = Color( 0.847059, 0.0117647, 0.0117647, 1 )
 position = Vector2( 0, -7 )
 scale = Vector2( 0.53125, 0.53125 )
 
@@ -224,7 +224,7 @@ collide_with_areas = true
 position = Vector2( 0, -5 )
 enabled = true
 cast_to = Vector2( -20, 0 )
-collision_mask = 2
+collision_mask = 514
 
 [node name="Body" parent="." index="3"]
 position = Vector2( 0, -7 )

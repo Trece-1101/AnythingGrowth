@@ -1,11 +1,23 @@
-extends Sprite
+class_name GrowthFeedback extends Node2D
 
 onready var animation:AnimationPlayer = $AnimationPlayer
 
+#func set_growths_left(value:int) -> void:
+#	$SpriteBox/Label.text = "{v}".format({"v": value})
 
-func show() -> void:
+func show_enabled(value:int) -> void:
+	visible = true
+	animation.stop(true)
+	$SpriteBox/Label.text = "{v}".format({"v": value})
 	animation.play("show")
 
-func hide() -> void:
+
+func show_disabled() -> void:
+	visible = true
+	animation.stop(true)
+	animation.play("disable")
+
+
+func hide_feedback() -> void:
 	animation.stop(true)
 	visible = false
