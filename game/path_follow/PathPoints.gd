@@ -1,4 +1,3 @@
-tool
 class_name PathPoints extends Line2D
 
 enum Mode {CYCLE, PING_PONG}

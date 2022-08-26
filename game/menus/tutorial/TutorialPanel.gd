@@ -22,13 +22,6 @@ var texts := [
 
 func _ready() -> void:
 	$Label.text = texts[text_index]
-#	if text_to_show == "text_one":
-#		$Label.text = text_one
-#	elif text_to_show == "text_two":
-#		$Label.text = text_two
-#	elif text_to_show == "text_three":
-#		$Label.text = text_three
-	
 	get_tree().paused = true
 
 

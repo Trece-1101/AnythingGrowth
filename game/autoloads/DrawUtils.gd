@@ -1,4 +1,3 @@
-tool
 extends Node
 
 const DEFAULT_POINTS_COUNT: int = 32

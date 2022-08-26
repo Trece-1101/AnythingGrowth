@@ -28,15 +28,12 @@ position = Vector2( 307, 319 )
 speed = Vector2( -100, 100 )
 
 [node name="ExitArea" parent="." index="12"]
-position = Vector2( 760, 325 )
+position = Vector2( 760, 328 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
-layer = 2
+pause_mode = 2
+layer = 10
 visible = false
 
 [node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
-margin_left = -485.0
-margin_top = -250.0
-margin_right = 485.0
-margin_bottom = 250.0
 text_index = 2

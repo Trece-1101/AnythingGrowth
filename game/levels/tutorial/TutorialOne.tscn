@@ -13,14 +13,10 @@ seconds_to_finish = 120
 is_tutorial = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
-layer = 2
-visible = false
+pause_mode = 2
+layer = 10
 
 [node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
-margin_left = -485.0
-margin_top = -250.0
-margin_right = 485.0
-margin_bottom = 250.0
 text_index = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="2"]
@@ -28,6 +24,7 @@ margin_left = 739.0
 margin_top = 351.0
 margin_right = 817.0
 margin_bottom = 457.0
+mouse_filter = 2
 texture = ExtResource( 4 )
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="3"]
@@ -35,6 +32,7 @@ margin_left = 822.0
 margin_top = 309.0
 margin_right = 932.0
 margin_bottom = 494.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="4"]
@@ -42,6 +40,7 @@ margin_left = 521.0
 margin_top = 291.0
 margin_right = 571.0
 margin_bottom = 341.0
+mouse_filter = 2
 texture = ExtResource( 6 )
 
 [node name="TileMapGreenWorld" parent="." index="4"]
@@ -54,6 +53,6 @@ position = Vector2( 296, 321 )
 position = Vector2( 416, 324 )
 
 [node name="ExitArea" parent="." index="13"]
-position = Vector2( 754, 276 )
+position = Vector2( 754, 280 )
 
 [editable path="CanvasLayer/TutorialPanel"]

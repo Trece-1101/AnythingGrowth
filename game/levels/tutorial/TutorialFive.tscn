@@ -42,11 +42,8 @@ max_weight_allowed = 20000.0
 position = Vector2( 756, 369 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
-visible = false
+pause_mode = 2
+layer = 10
 
 [node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
-margin_left = -485.0
-margin_top = -250.0
-margin_right = 485.0
-margin_bottom = 250.0
 text_index = 5

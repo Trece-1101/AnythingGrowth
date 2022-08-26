@@ -28,12 +28,10 @@ position = Vector2( 650, 246 )
 position = Vector2( 759, 160 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
+pause_mode = 2
+layer = 10
 
 [node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
-margin_left = -485.0
-margin_top = -250.0
-margin_right = 485.0
-margin_bottom = 250.0
 text_index = 4
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="0"]
