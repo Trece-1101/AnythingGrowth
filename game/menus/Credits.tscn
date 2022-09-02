@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/logos/godot_logo.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/return.png" type="Texture" id=3]
 [ext_resource path="res://game/menus/Credits.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
+size = 23
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 23
 font_data = ExtResource( 1 )
 
@@ -38,7 +46,7 @@ margin_bottom = 468.0
 margin_right = 341.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Design"
 align = 2
 valign = 1
@@ -48,7 +56,7 @@ margin_top = 104.0
 margin_right = 341.0
 margin_bottom = 204.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Programming
 "
 align = 2
@@ -59,7 +67,7 @@ margin_top = 208.0
 margin_right = 341.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Assets
 "
 align = 2
@@ -70,7 +78,7 @@ margin_top = 312.0
 margin_right = 341.0
 margin_bottom = 412.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Music
 "
 align = 2
@@ -81,15 +89,12 @@ margin_left = 684.49
 margin_top = 56.0
 margin_right = 1096.49
 margin_bottom = 479.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 margin_right = 412.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Bazzi, Omar"
 valign = 1
 
@@ -98,7 +103,7 @@ margin_top = 104.0
 margin_right = 412.0
 margin_bottom = 204.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Bazzi, Omar
 "
 valign = 1
@@ -108,7 +113,7 @@ margin_top = 208.0
 margin_right = 412.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Kenney Assets
 Visit kenney.nl"
 valign = 1
@@ -118,7 +123,7 @@ margin_top = 312.0
 margin_right = 412.0
 margin_bottom = 412.0
 rect_min_size = Vector2( 412, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Kenney Assets"
 valign = 1
 
@@ -133,7 +138,7 @@ margin_top = 504.0
 margin_right = 774.734
 margin_bottom = 604.0
 rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Made with"
 align = 1
 valign = 1

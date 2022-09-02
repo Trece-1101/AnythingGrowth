@@ -381,10 +381,21 @@ margin_bottom = 94.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
+[node name="Tutorial" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
+margin_left = 18.0
+margin_right = 282.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play With Tutorial"
+go_to_scene = "res://game/levels/tutorial/TutorialOne.tscn"
+
 [node name="PlayButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
 margin_left = 50.0
+margin_top = 64.0
 margin_right = 250.0
-margin_bottom = 60.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 200, 60 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -393,9 +404,9 @@ go_to_scene = "res://game/levels/Level1.tscn"
 
 [node name="CreditsButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
 margin_left = 50.0
-margin_top = 64.0
+margin_top = 128.0
 margin_right = 250.0
-margin_bottom = 124.0
+margin_bottom = 188.0
 rect_min_size = Vector2( 200, 60 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -403,16 +414,16 @@ text = "Credits"
 go_to_scene = "res://game/menus/Credits.tscn"
 
 [node name="HSeparator" type="HSeparator" parent="ButtonsWrapper/TextureRect/ButtonsContainer"]
-margin_top = 128.0
+margin_top = 192.0
 margin_right = 300.0
-margin_bottom = 148.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="QuitButton" parent="ButtonsWrapper/TextureRect/ButtonsContainer" instance=ExtResource( 1 )]
 margin_left = 50.0
-margin_top = 152.0
+margin_top = 216.0
 margin_right = 250.0
-margin_bottom = 212.0
+margin_bottom = 276.0
 rect_min_size = Vector2( 200, 60 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

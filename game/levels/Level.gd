@@ -11,7 +11,7 @@ func _ready() -> void:
 	if GameMusic.get_music_playing() != "level":
 		GameMusic.play_music("level")
 	if is_tutorial:
-		$CanvasLayer.visible = true
+		$TutorialMainPanel.visible = true
 	hud.set_level_text(self.name)
 	hud.set_time_to_finish(seconds_to_finish)
 	Events.connect("level_win", self, "change_level")

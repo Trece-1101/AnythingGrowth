@@ -4,7 +4,7 @@
 [ext_resource path="res://game/enemies/Mine/MineEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/visuals/backgrounds/background_0010.png" type="Texture" id=4]
-[ext_resource path="res://game/menus/tutorial/TutorialPanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/ui/TutorialMainPanel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/img_tutorial_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/img_tutorial_5.png" type="Texture" id=7]
 
@@ -31,29 +31,15 @@ position = Vector2( 422, 339 )
 [node name="ExitArea" parent="." index="12"]
 position = Vector2( 548, 370 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
-pause_mode = 2
-layer = 10
-
-[node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
+[node name="TutorialMainPanel" parent="." index="13" instance=ExtResource( 5 )]
 text_index = 3
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="2"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -133.0
-margin_top = -150.0
-margin_right = -35.0
-margin_bottom = -16.0
+[node name="ImgTutorial4" type="Sprite" parent="TutorialMainPanel" index="1"]
+position = Vector2( 991, 514 )
 texture = ExtResource( 6 )
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TutorialPanel" index="3"]
-margin_left = 474.0
-margin_top = 415.0
-margin_right = 790.0
-margin_bottom = 484.0
+[node name="ImgTutorial5" type="Sprite" parent="TutorialMainPanel" index="2"]
+position = Vector2( 719, 546 )
 texture = ExtResource( 7 )
 
-[editable path="CanvasLayer/TutorialPanel"]
+[editable path="TutorialMainPanel"]

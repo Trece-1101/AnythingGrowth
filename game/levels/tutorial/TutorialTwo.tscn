@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/levels/BaseLevel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/menus/tutorial/TutorialPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/ui/TutorialMainPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/visuals/backgrounds/background_0005.png" type="Texture" id=4]
 
@@ -30,10 +30,5 @@ speed = Vector2( -100, 100 )
 [node name="ExitArea" parent="." index="12"]
 position = Vector2( 760, 328 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
-pause_mode = 2
-layer = 10
-visible = false
-
-[node name="TutorialPanel" parent="CanvasLayer" index="0" instance=ExtResource( 2 )]
+[node name="TutorialMainPanel" parent="." index="13" instance=ExtResource( 2 )]
 text_index = 2

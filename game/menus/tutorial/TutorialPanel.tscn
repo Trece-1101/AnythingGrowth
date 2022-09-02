@@ -5,8 +5,7 @@
 [ext_resource path="res://game/ui/ButtonStylePanel.tres" type="StyleBox" id=4]
 [ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 20
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -25,7 +24,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="TutorialPanel" type="NinePatchRect"]
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+
+[node name="TutorialPanel" type="NinePatchRect" parent="."]
 pause_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
@@ -42,7 +44,7 @@ patch_margin_right = 20
 patch_margin_bottom = 20
 script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="TutorialPanel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -52,14 +54,11 @@ margin_top = -180.0
 margin_right = 422.5
 margin_bottom = 180.0
 rect_min_size = Vector2( 850, 360 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Texto"
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="TutorialPanel"]
 margin_top = 500.0
 margin_right = 968.0
 margin_bottom = 585.0
@@ -68,4 +67,4 @@ custom_styles/hover = SubResource( 2 )
 custom_styles/normal = ExtResource( 4 )
 text = "Continuar"
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TutorialPanel/Button" to="TutorialPanel" method="_on_Button_pressed"]
