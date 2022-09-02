@@ -9,23 +9,173 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GrowthItem",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://game/items/ball/Ball.gd"
+}, {
+"base": "RayCast2D",
+"class": "FloorDetector",
+"language": "GDScript",
+"path": "res://game/player/FloorDetector.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "GrowthEnemy",
+"language": "GDScript",
+"path": "res://game/enemies/GrowthEnemy.gd"
+}, {
+"base": "Node2D",
+"class": "GrowthFeedback",
+"language": "GDScript",
+"path": "res://game/ui/GrowthFeedback.gd"
+}, {
+"base": "RigidBody2D",
+"class": "GrowthItem",
+"language": "GDScript",
+"path": "res://game/items/GrowthItem.gd"
+}, {
+"base": "Node2D",
+"class": "GrowthPlatform",
+"language": "GDScript",
+"path": "res://game/items/platform/GrowthPlatform.gd"
+}, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://game/ui/hud/HUD.gd"
+}, {
 "base": "Button",
 "class": "MainButton",
 "language": "GDScript",
 "path": "res://game/ui/MenuButton.gd"
+}, {
+"base": "Line2D",
+"class": "PathPoints",
+"language": "GDScript",
+"path": "res://game/path_follow/PathPoints.gd"
+}, {
+"base": "Node2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://game/items/platform/Platform.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://game/player/Player.gd"
+}, {
+"base": "Node",
+"class": "PlayerSFX",
+"language": "GDScript",
+"path": "res://game/player/PlayerSFX.gd"
 } ]
 _global_script_class_icons={
-"MainButton": ""
+"Ball": "",
+"FloorDetector": "",
+"GrowthEnemy": "",
+"GrowthFeedback": "",
+"GrowthItem": "",
+"GrowthPlatform": "",
+"HUD": "",
+"MainButton": "",
+"PathPoints": "",
+"Platform": "",
+"Player": "",
+"PlayerSFX": ""
 }
 
 [application]
 
 config/name="AnythingGrowth"
+run/main_scene="res://game/menus/Intro.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://game/autoloads/Events.gd"
+Utils="*res://game/autoloads/Utils.gd"
+DrawUtils="*res://game/autoloads/DrawUtils.gd"
+GameMusic="*res://game/autoloads/GameMusic.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+unused=false
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+dash={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777241,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+growth={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+restart={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="world"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="mouse_pickable"
+2d_physics/layer_5="enemy_flyer"
+2d_physics/layer_6="enemy_mine"
+2d_physics/layer_7="enemy_spiker"
+2d_physics/layer_8="ball"
+2d_physics/layer_9="damage"
+2d_physics/layer_10="door"
 
 [physics]
 

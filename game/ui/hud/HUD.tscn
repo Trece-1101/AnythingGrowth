@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Fonts/Kenney Thick.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://game/ui/hud/HUD.gd" type="Script" id=2]
+[ext_resource path="res://assets/icons/return.png" type="Texture" id=3]
+[ext_resource path="res://assets/Fonts/Kenney Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/icons/menuList.png" type="Texture" id=5]
+[ext_resource path="res://assets/Icons/menuGrid.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+border_width_left = 4
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 6
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="HUD" type="CanvasLayer"]
+layer = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 16.0 ],
+"_edit_vertical_guides_": [ 640.437 ]
+}
+
+[node name="BtnRetry" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -637.064
+margin_top = -61.7072
+margin_right = -577.064
+margin_bottom = -1.70715
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+icon = ExtResource( 3 )
+
+[node name="BtnMenu" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -573.064
+margin_top = -61.7072
+margin_right = -513.064
+margin_bottom = -1.70715
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+icon = ExtResource( 5 )
+
+[node name="BtnSelection" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -509.064
+margin_top = -61.7072
+margin_right = -449.064
+margin_bottom = -1.70715
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_top = 18.7331
+margin_right = 150.0
+margin_bottom = 48.7331
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "Level20"
+align = 1
+valign = 1
+
+[node name="LoseLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.0
+margin_top = -47.5
+margin_right = 257.0
+margin_bottom = 47.5
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 5 )
+text = "Your time has expire
+Try Again!!!"
+align = 1
+valign = 1
+
+[node name="LabelTime" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -324.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "80  seconds left"
+align = 1
+valign = 1
+
+[node name="GrowthLeft" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 316.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "6 growths left"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="pressed" from="BtnRetry" to="." method="_on_BtnRetry_pressed"]
+[connection signal="pressed" from="BtnMenu" to="." method="_on_BtnMenu_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

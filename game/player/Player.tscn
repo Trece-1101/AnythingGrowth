@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/player/PlayerSkin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/player/PlayerSFX.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/player/Player.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 11 )
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+z_index = 20
+collision_mask = 2
+script = ExtResource( 3 )
+speed = 160.0
+gravity = 24.0
+jump_force = 400.0
+dash_force = 1000.0
+
+[node name="Skin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -12 )
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -11 )
+shape = SubResource( 1 )
+
+[node name="TweenDash" type="Tween" parent="."]
+
+[node name="CoolDown" type="Timer" parent="TweenDash"]
+wait_time = 0.8
+one_shot = true
+
+[node name="FootPosition" type="Position2D" parent="."]
+
+[node name="SFX" parent="." instance=ExtResource( 2 )]
+
+[connection signal="tween_all_completed" from="TweenDash" to="." method="_on_TweenDash_tween_all_completed"]
+[connection signal="timeout" from="TweenDash/CoolDown" to="." method="_on_CoolDown_timeout"]

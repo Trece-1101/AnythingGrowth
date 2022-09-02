@@ -1,0 +1,58 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://game/items/spike/Spike.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/levels/world/TileMapGreenWorld.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/levels/world/TileMapProps.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/levels/world/AutoTileMapGreenWorld.tscn" type="PackedScene" id=5]
+[ext_resource path="res://game/items/ball/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/items/platform/Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/levels/Level.gd" type="Script" id=8]
+[ext_resource path="res://game/items/Switch.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/levels/ExitArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/levels/camera/LevelCamera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game/enemies/Flyer/FlyerEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game/enemies/Spiker/SpikerEnemy.tscn" type="PackedScene" id=13]
+
+[node name="TestLevel" type="Node"]
+pause_mode = 2
+script = ExtResource( 8 )
+next_level = "res://game/levels/BaseLevel.tscn"
+
+[node name="TileMapGreenWorld" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114112, 0, 0, 1179648, 0, 0, 1245184, 0, 0, 1310720, 0, 0, 1376256, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1835009, 0, 0, 1835010, 0, 0, 1835011, 0, 0, 1835012, 0, 0, 1835013, 0, 0, 1835014, 0, 0, 1835015, 0, 0, 1835016, 0, 0, 1835017, 0, 0, 1835018, 0, 0, 1835019, 0, 0, 1835020, 0, 0, 1835021, 0, 0, 1835022, 0, 0, 1835023, 0, 0, 1835024, 0, 0, 1835025, 0, 0, 1835026, 0, 0, 1835027, 0, 0, 1835028, 0, 0, 1835029, 0, 0, 1835030, 0, 0, 1835031, 0, 0, 1835032, 0, 0, 1835033, 0, 0 )
+
+[node name="TileMapProps" parent="." instance=ExtResource( 4 )]
+
+[node name="AutoTileMapGreenWorld" parent="." instance=ExtResource( 5 )]
+
+[node name="Platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 366, 264 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 81, 375 )
+
+[node name="Switch" parent="." instance=ExtResource( 9 )]
+position = Vector2( 26, 375 )
+
+[node name="DoorWrapper" parent="Switch" index="2"]
+position = Vector2( 182, -89 )
+
+[node name="ExitArea" parent="." instance=ExtResource( 10 )]
+position = Vector2( 617, 227 )
+
+[node name="Camera" parent="." instance=ExtResource( 11 )]
+
+[node name="FlyerEnemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 136, 257 )
+
+[node name="SpikerEnemy" parent="." instance=ExtResource( 13 )]
+position = Vector2( 288, 371 )
+
+[node name="Ball" parent="." instance=ExtResource( 6 )]
+position = Vector2( 365, 210 )
+
+[node name="Spike" parent="." instance=ExtResource( 1 )]
+position = Vector2( 374, 373 )
+
+[editable path="Switch"]

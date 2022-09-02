@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/autoloads/GameMusic.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/music/menu_level.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/ui/confirmation_003.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/music/music_level.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/sfx/win.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/sfx/loseO.ogg" type="AudioStream" id=6]
+
+[node name="GameMusic" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "UI"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "UI"
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "UI"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/growthO.ogg-77174730aaa56fafa759e0ece52c961a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/growthO.ogg"
+dest_files=[ "res://.import/growthO.ogg-77174730aaa56fafa759e0ece52c961a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
